@@ -130,7 +130,6 @@ namespace ClementineCloneUwp
         }
 
 
-
         private void SeekPositionSlider_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             var seekPosition = timelineSlider.Value / 100;
@@ -147,8 +146,6 @@ namespace ClementineCloneUwp
             e.DragUIOverride.IsCaptionVisible = true;
             e.DragUIOverride.IsContentVisible = true;
         }
-
- 
 
         private async void dataGrid_Drop(object sender, DragEventArgs e)
         {
@@ -182,9 +179,7 @@ namespace ClementineCloneUwp
             timer.Change(Timeout.Infinite, Timeout.Infinite);
             bool isPlayingPlaylistTrack = playingMode == PlayingMode.PLAYLIST;
             MusicPlayerController.ReinitiatePlayer(ref player);
-
             player.MediaEnded += PlayNewSong_MediaEnded;
-            timer.Change(Timeout.Infinite, Timeout.Infinite);
             if (isPlayingPlaylistTrack)
             {
                 currentPlayingSongPlaylistIndex++;
@@ -220,9 +215,6 @@ namespace ClementineCloneUwp
         }
 
      
-
-     
-
         private void ButtonPlaylist_Click(object sender,RoutedEventArgs e)
         {
             playingMode = PlayingMode.PLAYLIST;
@@ -261,7 +253,7 @@ namespace ClementineCloneUwp
         {
             picker = new FolderPicker();
             picker.SuggestedStartLocation = PickerLocationId.Desktop;
-            picker.FileTypeFilter.Add("*");
+            picker.FileTypeFilter.Add(".mp3");
             var folder = await picker.PickSingleFolderAsync();
             await AudioFileRetriever.RetreiveFilesInFolders(playlistTracks, folder);
             await AudioFileRetriever.RetrieveSongMetadata(playlistTracks, playlistsongsMetaData);
@@ -344,5 +336,6 @@ namespace ClementineCloneUwp
                 musicList.Remove(musicList.Where(elem2 => (item).Path == elem2.Path).First());
             }
         }
+
     }
 }

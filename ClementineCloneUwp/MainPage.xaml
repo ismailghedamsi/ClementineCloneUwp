@@ -29,12 +29,9 @@
                           Content="&#xE838;" 
                           ToolTipService.ToolTip="Open a music directory" 
                           Click="OpenFolder_Click" />
-            <AppBarButton Content="Close"/>
         </CommandBar>
-        <SplitView x:Name="splitView"
+        <SplitView x:Name="splitView"  Grid.Column="0"  Grid.Row="1"
                    DisplayMode="CompactOverlay"
-                   Grid.Column="0" 
-                   Grid.Row="1"
                    CompactPaneLength="50"
                    OpenPaneLength="150"
                    >
@@ -42,20 +39,25 @@
                 <StackPanel Background="Gray">
 
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="showSplitViewButton" Click="OpenCloseSplitView_Click" Width="50" Height="50"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;"  ToolTipService.ToolTip="Show" />
+                        <Button x:Name="showSplitViewButton"
+                                Click="OpenCloseSplitView_Click"
+                                Width="50" Height="50"
+                                FontFamily="Segoe MDL2 Assets"
+                                Content="&#xE700;"  
+                                ToolTipService.ToolTip="Show" />
                         <TextBlock VerticalAlignment="Center">Hide</TextBlock>
                     </StackPanel>
-
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Button  ToolTipService.ToolTip="Music Library" Content="&#xE8D6;" FontFamily="Segoe MDL2 Assets" FontSize="25"  Width="50" Height="50" Click="Button_Click_Library" />
+                        <TextBlock VerticalAlignment="Center">Music Library</TextBlock>
+                    </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Playlist"  ToolTipService.ToolTip="Playlist" Click="ButtonPlaylist_Click" FontFamily="Segoe MDL2 Assets" FontSize="25" Width="50" Height="50"/>
                         <TextBlock VerticalAlignment="Center">Playlist</TextBlock>
                     </StackPanel>
-
-                    <StackPanel Orientation="Horizontal">
-                        <Button  ToolTipService.ToolTip="Music Library" Content="&#xE8D6;" FontFamily="Segoe MDL2 Assets" FontSize="25"  Width="50" Height="50" Click="Button_Click_Library" />
-                        <TextBlock VerticalAlignment="Center">Music Library</TextBlock>
-                    </StackPanel>
+                    
                 </StackPanel>
 
             </SplitView.Pane>
@@ -78,18 +80,15 @@
                            Grid.RowSpan="3"
                            KeyUp="DeleteRowKeyUp_Click" >
             <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Header="ID" Tag="ID"/>
                 <controls:DataGridTextColumn Header="Title" Tag="Title" />
                 <controls:DataGridTextColumn Header="Artist" Tag="Artist"/>
                 <controls:DataGridTextColumn Header="Album" Tag="Album"/>
                 <controls:DataGridTextColumn Header="Duration" Tag="Duration"/>
                 <controls:DataGridTextColumn Header="Genre" Tag="Genre"/>
-                <controls:DataGridTextColumn Header="Path" Tag="ID"/>
+                <controls:DataGridTextColumn Header="Path" Tag="Path"/>
             </controls:DataGrid.Columns>
 
         </controls:DataGrid>
-
-
         <RelativePanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" >
             <StackPanel x:Name="stackManelMusicControl" HorizontalAlignment="Center"
                        
