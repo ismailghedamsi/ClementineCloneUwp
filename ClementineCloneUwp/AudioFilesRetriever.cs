@@ -31,7 +31,7 @@ namespace ClementineCloneUwp
         }
 
 
-        public static async Task RetrieveSongMetadata(ObservableCollection<StorageFile> listsongStorage, ObservableCollection<Song> listSong)
+        public static async Task RetrieveSongMetadata(List<StorageFile> listsongStorage, List<Song> listSong)
         {
             foreach (var item in listsongStorage)
             {
@@ -40,7 +40,7 @@ namespace ClementineCloneUwp
             }
         }
 
-        public static async Task RetreiveFilesInFolders(ObservableCollection<StorageFile> list, StorageFolder parent)
+        public static async Task RetreiveFilesInFolders(List<StorageFile> list, StorageFolder parent)
         {
             if(parent != null)
             {

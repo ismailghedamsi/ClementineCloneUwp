@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Uwp.UI.Controls;
 using Syncfusion.Data.Extensions;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
@@ -28,11 +29,11 @@ namespace ClementineCloneUwp
     public sealed partial class MainPage : Windows.UI.Xaml.Controls.Page
     {
 
-        private ObservableCollection<Song> playlistsongsMetaData;
-        private ObservableCollection<Song> musicLibrarySongsMetaData;
+        private List<Song> playlistsongsMetaData;
+        private List<Song> musicLibrarySongsMetaData;
         private FolderPicker picker;
-        private ObservableCollection<StorageFile> musicLibrary;
-        private ObservableCollection<StorageFile> playlistTracks;
+        private List<StorageFile> musicLibrary;
+        private List<StorageFile> playlistTracks;
         private StorageFolder folder = KnownFolders.MusicLibrary;
         private MediaPlayer player;
         private static int currentPlayingSongMusicLibraryIndex;
@@ -46,10 +47,10 @@ namespace ClementineCloneUwp
         public MainPage()
         {
             this.InitializeComponent();
-            musicLibrary = new ObservableCollection<StorageFile>();
-            playlistsongsMetaData = new ObservableCollection<Song>();
-            musicLibrarySongsMetaData = new ObservableCollection<Song>();
-            playlistTracks = new ObservableCollection<StorageFile>();
+            musicLibrary = new List<StorageFile>();
+            playlistsongsMetaData = new List<Song>();
+            musicLibrarySongsMetaData = new List<Song>();
+            playlistTracks = new List<StorageFile>();
             player = new MediaPlayer();
             player.MediaEnded += PlayNewSong_MediaEnded;
             volumeSlider.Value = player.Volume * 100;
@@ -206,7 +207,7 @@ namespace ClementineCloneUwp
 
         }
 
-        private void SetCurrentPlayingSong(ObservableCollection<StorageFile> tracks,int currentPlayingSong)
+        private void SetCurrentPlayingSong(List<StorageFile> tracks,int currentPlayingSong)
         {
             if (tracks.Count > currentPlayingSong)
             {
@@ -327,7 +328,7 @@ namespace ClementineCloneUwp
            
         }
 
-        private void RemoveSongFromSongToPlay(IList selectedItems,ObservableCollection<StorageFile> musicList, ObservableCollection<Song> metaDataList)
+        private void RemoveSongFromSongToPlay(IList selectedItems,List<StorageFile> musicList, List<Song> metaDataList)
         {
             for (int i = 0; i < selectedItems.Count; i++)
             {
