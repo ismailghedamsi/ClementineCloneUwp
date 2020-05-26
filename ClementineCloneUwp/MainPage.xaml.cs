@@ -108,7 +108,7 @@ namespace ClementineCloneUwp
                        double increaseRate = 100.0 / player.PlaybackSession.NaturalDuration.TotalSeconds;
                        if (player != null && !Double.IsInfinity(increaseRate))
                        {
-                           timelineSlider.Value += (99.0 / player.PlaybackSession.NaturalDuration.TotalSeconds);
+                           timelineSlider.Value += (100.0 / player.PlaybackSession.NaturalDuration.TotalSeconds);
                        }
                        else
                        {
