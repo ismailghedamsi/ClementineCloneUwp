@@ -99,7 +99,7 @@
                 <Button  FontFamily="Segoe MDL2 Assets" Content="&#xE769;"  VerticalAlignment="Center" Click="Button_Click_Stop" Margin="10,0,0,0"/>
                 <Button FontFamily="Segoe MDL2 Assets" Content="&#xE892;"  VerticalAlignment="Center" Click="PlayPreviousSongButton_Click" Margin="10,0,0,0"/>
                 <Button FontFamily="Segoe MDL2 Assets" Content="&#xE893;" VerticalAlignment="Center" Click="PlayNextSongButton_Click"   Margin="10,0,0,0"/>
-               
+
                 <Slider x:Name="timelineSlider"  Width="200"  Margin="10,0,0,0" HorizontalAlignment="Right"  Maximum="100" 
                      ManipulationMode="All"
                     />
@@ -110,6 +110,5 @@
                     RelativePanel.AlignRightWithPanel="True"
                     />
         </RelativePanel>
-       
     </Grid>
 </Page>
